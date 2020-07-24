@@ -109,6 +109,8 @@ class SortingRobot:
 
                 if self.compare_item() == -1: #meaning self.item < self.position
                     self.swap_item()
+            #if it reaches end and never swapped
+            self.swap_item()
             
 
 

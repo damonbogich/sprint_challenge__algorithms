@@ -6,7 +6,7 @@ a)
 This function is O(n) (or linear), because for the value of n is the number of times the loop will run.
 
 b)
-This function is logn, because the second the variable j is being doubled every time it goes through the while loop.
+This function is logn, because the second the variable j is being doubled every time it goes through the while loop. O(n  logn)
 
 c)
 This function is O(n) or linear, because the value of n will determine how many times the function will call itself.

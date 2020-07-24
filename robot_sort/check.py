@@ -93,27 +93,21 @@ class SortingRobot:
         return self._light == "ON"
 
     def sort(self):
-        #bubble sort 
-        #use light as boolean?
-        
+        #1. make robot hold item
 
-            #loop through and compare items
-        for self._item in self._list:
-            
-            print('self.item', self._item)
-            self.move_right()
-            print('self.position after moving', self._position)
-            if self.compare_item() == 1: #if self.item > self.postion[item]
-                self.swap_item() #swap them
-                print('self.list after swap', self._list)
-                print('self.item after swap', self._item)
+        #2. compare item to every list index
+
+        #3. if item > list index:
+            #move right
+
+            #if item < list index: 
+            #swap items
+        #4. 
+               
 
 
 
-
-        
-
-
+item = None
 
 l = [5,4,3,2,1]
 
