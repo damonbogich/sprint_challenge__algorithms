@@ -114,3 +114,25 @@ l = [5,4,3,2,1]
 myRobot = SortingRobot(l)
 
 myRobot.sort()
+
+
+#original bubble sort:
+# def bubble_sort(arr):
+#     swap = True
+#     while swap is True:
+#         swap = False
+#         for i in range(0, len(arr) - 1):
+            
+#             current_index = i 
+
+#             #if current value is greater than next swap
+#             if arr[current_index] > arr[current_index + 1]:
+#                 current_val = arr[current_index]
+#                 compare_val = arr[current_index + 1]
+
+#                 arr[current_index] = compare_val
+#                 arr[current_index + 1] = current_val
+
+#                 swap = True
+
+#     return arr
