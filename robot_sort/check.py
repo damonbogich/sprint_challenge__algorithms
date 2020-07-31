@@ -93,27 +93,51 @@ class SortingRobot:
         return self._light == "ON"
 
     def sort(self):
-        #1. make robot hold item
+        self.swap_item()
+        self.set_light_on()
+        while self.light_is_on():
+            self.set_light_off()
+            while self.can_move_right():
+                self.move_right()
 
-        #2. compare item to every list index
+                #check if item is greater than position's item
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.set_light_on()
+                    self.move_left()
+                    self.swap_item()
+                elif self.compare_item() == None:
+                    self.swap_item()
+                # elif self.compare_item() == -1:
+                #     self.move_left()
+                #     self.swap_item()
+                else:
+                    self.move_left()
+                    self.swap_item()
 
-        #3. if item > list index:
-            #move right
+            while self.can_move_right() == False:
+                if self.compare_item() == None:
+                    self.swap_item()
+                    while self.can_move_left():
+                        self.move_left()
+                    if self.light_is_on():
+                        self.swap_item()
+            
+        return self._list
+        
 
-            #if item < list index: 
-            #swap items
-        #4. 
-               
+
+
 
 
 
 item = None
 
-l = [5,4,3,2,1]
+l = [4,2,3,1]
 
 myRobot = SortingRobot(l)
 
-myRobot.sort()
+print(myRobot.sort())
 
 
 #original bubble sort:
@@ -136,3 +160,18 @@ myRobot.sort()
 #                 swap = True
 
 #     return arr
+
+item = None
+
+[4,3,2,1]
+
+item = 4
+[None, 3,2,1]
+
+item = 3
+       #R 
+[None, 4, 2, 1]
+
+item = None
+
+[3,4,2,1]

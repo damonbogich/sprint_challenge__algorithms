@@ -93,24 +93,38 @@ class SortingRobot:
         return self._light == "ON"
 
     def sort(self):
-        #boolean
+        self.swap_item()
         self.set_light_on()
-        
         while self.light_is_on():
-
-            #make sure you're not carrying None
-            if self._item is None: 
-                self.swap_item()
-            
-            #move self position to the right if you can
-            #while?
+            self.set_light_off()
             while self.can_move_right():
                 self.move_right()
 
-                if self.compare_item() == -1: #meaning self.item < self.position
+                #check if item is greater than position's item
+                if self.compare_item() == 1:
                     self.swap_item()
-            #if it reaches end and never swapped
-            self.swap_item()
+                    self.set_light_on()
+                    self.move_left()
+                    self.swap_item()
+                elif self.compare_item() == None:
+                    self.swap_item()
+                # elif self.compare_item() == -1:
+                #     self.move_left()
+                #     self.swap_item()
+                else: 
+                    self.move_left()
+                    self.swap_item()
+
+            while self.can_move_right() == False:
+                if self.compare_item() == None:
+                    self.swap_item()
+                    while self.can_move_left():
+                        self.move_left()
+                    if self.light_is_on():
+                        self.swap_item()
+            
+        return self._list
+        
             
 
 
